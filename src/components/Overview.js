@@ -2,7 +2,11 @@ import { Component } from "react";
 
 class Overview extends Component {
   render() {
-    return <div className="tasks">Overview</div>;
+    const tasks = this.props.taskList.map((task) => (
+      <li key={crypto.randomUUID()}>{task}</li>
+    ));
+
+    return <ul>{tasks}</ul>;
   }
 }
 
