@@ -23,23 +23,25 @@ class App extends Component {
       }
     );
 
-    const textInput = document.getElementById("inputField");
-    textInput.value = "";
+    this.setState({ inputField: "" });
   };
 
   render() {
+    const { listArray, inputField } = this.state;
+
     return (
       <>
         <form action="#" id="form">
           <input
             type="text"
             id="inputField"
+            value={inputField}
             onChange={this.updateInput}
           ></input>
           <button onClick={this.clickHandler}>Add Task</button>
         </form>
 
-        <Overview taskList={this.state.listArray} />
+        <Overview taskList={listArray} />
       </>
     );
   }
