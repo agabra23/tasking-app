@@ -26,6 +26,14 @@ class App extends Component {
     this.setState({ inputField: "" });
   };
 
+  deleteItem = (index) => {
+    const tempList = this.state.listArray;
+
+    tempList.splice(index, 1);
+
+    this.setState({ listArray: tempList });
+  };
+
   render() {
     const { listArray, inputField } = this.state;
 
@@ -41,7 +49,10 @@ class App extends Component {
           <button onClick={this.clickHandler}>Add Task</button>
         </form>
 
-        <Overview taskList={listArray} />
+        <Overview
+          deleteHandle={(index) => this.deleteItem(index)}
+          taskList={listArray}
+        />
       </>
     );
   }
